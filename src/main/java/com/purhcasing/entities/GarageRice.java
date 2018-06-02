@@ -6,6 +6,7 @@
 package com.purhcasing.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +24,8 @@ public class GarageRice implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private int quantity;
+    private LocalDate currentStoredTime;
+   
     @ManyToOne
     private Garage garage=new Garage();
     @ManyToOne
@@ -37,13 +39,15 @@ public class GarageRice implements Serializable {
         this.id = id;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public LocalDate getCurrentStoredTime() {
+        return currentStoredTime;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setCurrentStoredTime(LocalDate currentStoredTime) {
+        this.currentStoredTime = currentStoredTime;
     }
+
+  
 
     public Garage getGarage() {
         return garage;

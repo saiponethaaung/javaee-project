@@ -28,11 +28,11 @@ public class Rice implements Serializable {
     private Integer id;
     private String loc;
     
-    private List<String> name = new ArrayList<>();
+    private String name ;
     @ManyToOne
     private Seller seller;
     @OneToMany(mappedBy="rice")
-    private SellerCredit sellerCredit;
+    private List<SellerCredit> sellerCredit=new ArrayList<>();
     private double price;
     private int quantity;
     @OneToMany(mappedBy="rice")
@@ -54,13 +54,15 @@ public class Rice implements Serializable {
         this.loc = loc;
     }
 
-    public List<String> getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(List<String> name) {
+    public void setName(String name) {
         this.name = name;
     }
+
+   
 
     public Seller getSeller() {
         return seller;
@@ -70,14 +72,15 @@ public class Rice implements Serializable {
         this.seller = seller;
     }
 
-    public SellerCredit getSellerCredit() {
+    public List<SellerCredit> getSellerCredit() {
         return sellerCredit;
     }
 
-    public void setSellerCredit(SellerCredit sellerCredit) {
+    public void setSellerCredit(List<SellerCredit> sellerCredit) {
         this.sellerCredit = sellerCredit;
     }
 
+   
     public double getPrice() {
         return price;
     }
