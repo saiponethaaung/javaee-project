@@ -6,10 +6,13 @@
 package com.purhcasing.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -24,6 +27,8 @@ public class Garage implements Serializable {
     private Long id;
     private String name;
     private int available_quantity;
+    @OneToMany(mappedBy = "garage")
+    private List<GarageRice> garageRiceList=new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -49,29 +54,17 @@ public class Garage implements Serializable {
         this.available_quantity = available_quantity;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public List<GarageRice> getGarageRiceList() {
+        return garageRiceList;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Garage)) {
-            return false;
-        }
-        Garage other = (Garage) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public void setGarageRiceList(List<GarageRice> garageRiceList) {
+        this.garageRiceList = garageRiceList;
     }
+    
+    
+    
 
-    @Override
-    public String toString() {
-        return "com.purhcasing.entities.Garage[ id=" + id + " ]";
-    }
+   
     
 }

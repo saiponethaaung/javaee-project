@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -23,6 +24,8 @@ public class GarageRice implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private int quantity;
+    @ManyToOne
+    private Garage garage=new Garage();
 
     public Integer getId() {
         return id;
@@ -31,6 +34,24 @@ public class GarageRice implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Garage getGarage() {
+        return garage;
+    }
+
+    public void setGarage(Garage garage) {
+        this.garage = garage;
+    }
+    
+    
 
     @Override
     public int hashCode() {
