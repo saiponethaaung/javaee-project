@@ -63,8 +63,15 @@ public class Seller implements Serializable {
     public void setRiceList(List<Rice> riceList) {
         this.riceList = riceList;
     }
-    
 
+    public List<SellerCredit> getSellerCreditList() {
+        return sellerCreditList;
+    }
+
+    public void setSellerCreditList(List<SellerCredit> sellerCreditList) {
+        this.sellerCreditList = sellerCreditList;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
