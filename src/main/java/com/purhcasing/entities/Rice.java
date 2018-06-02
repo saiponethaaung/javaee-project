@@ -8,12 +8,12 @@ package com.purhcasing.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -31,10 +31,12 @@ public class Rice implements Serializable {
     private List<String> name = new ArrayList<>();
     @ManyToOne
     private Seller seller;
-    @ManyToOne
+    @OneToMany(mappedBy="rice")
     private SellerCredit sellerCredit;
     private double price;
     private int quantity;
+    @OneToMany(mappedBy="rice")
+    private List<GarageRice> garageRiceList = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -90,6 +92,14 @@ public class Rice implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public List<GarageRice> getGarageRiceList() {
+        return garageRiceList;
+    }
+
+    public void setGarageRiceList(List<GarageRice> garageRiceList) {
+        this.garageRiceList = garageRiceList;
     }
 
     

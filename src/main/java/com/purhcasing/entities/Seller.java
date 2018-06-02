@@ -29,6 +29,8 @@ public class Seller implements Serializable {
     private boolean is_marchant;
     @OneToMany(mappedBy="seller")
     private List<Rice> riceList = new ArrayList<>();   
+    @OneToMany(mappedBy="seller")
+    private List<SellerCredit> sellerCreditList = new ArrayList<>();
     
     public Integer getId() {
         return id;

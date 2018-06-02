@@ -26,6 +26,8 @@ public class GarageRice implements Serializable {
     private int quantity;
     @ManyToOne
     private Garage garage=new Garage();
+    @ManyToOne
+    private Rice rice = new Rice();
 
     public Integer getId() {
         return id;
@@ -49,6 +51,14 @@ public class GarageRice implements Serializable {
 
     public void setGarage(Garage garage) {
         this.garage = garage;
+    }
+
+    public Rice getRice() {
+        return rice;
+    }
+
+    public void setRice(Rice rice) {
+        this.rice = rice;
     }
     
     
