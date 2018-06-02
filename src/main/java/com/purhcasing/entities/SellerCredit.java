@@ -38,6 +38,40 @@ public class SellerCredit implements Serializable {
         this.id = id;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public boolean isIs_paid() {
+        return is_paid;
+    }
+
+    public void setIs_paid(boolean is_paid) {
+        this.is_paid = is_paid;
+    }
+
+    public Rice getRice() {
+        return rice;
+    }
+
+    public void setRice(Rice rice) {
+        this.rice = rice;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 0;
