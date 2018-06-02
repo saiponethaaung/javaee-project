@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -26,8 +27,12 @@ public class Rice implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String loc;
-    @ElementCollection
+    
     private List<String> name = new ArrayList<>();
+    @ManyToOne
+    private Seller seller;
+    @ManyToOne
+    private SellerCredit sellerCredit;
     private double price;
     private int quantity;
 
@@ -39,6 +44,55 @@ public class Rice implements Serializable {
         this.id = id;
     }
 
+    public String getLoc() {
+        return loc;
+    }
+
+    public void setLoc(String loc) {
+        this.loc = loc;
+    }
+
+    public List<String> getName() {
+        return name;
+    }
+
+    public void setName(List<String> name) {
+        this.name = name;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
+
+    public SellerCredit getSellerCredit() {
+        return sellerCredit;
+    }
+
+    public void setSellerCredit(SellerCredit sellerCredit) {
+        this.sellerCredit = sellerCredit;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;

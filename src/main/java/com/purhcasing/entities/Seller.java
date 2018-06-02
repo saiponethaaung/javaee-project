@@ -6,10 +6,13 @@
 package com.purhcasing.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -24,7 +27,9 @@ public class Seller implements Serializable {
     private Integer id;
     private String name;
     private boolean is_marchant;
-
+    @OneToMany(mappedBy="seller")
+    private List<Rice> riceList = new ArrayList<>();   
+    
     public Integer getId() {
         return id;
     }
@@ -48,6 +53,15 @@ public class Seller implements Serializable {
     public void setIs_marchant(boolean is_marchant) {
         this.is_marchant = is_marchant;
     }
+
+    public List<Rice> getRiceList() {
+        return riceList;
+    }
+
+    public void setRiceList(List<Rice> riceList) {
+        this.riceList = riceList;
+    }
+    
 
     @Override
     public int hashCode() {
